@@ -16,7 +16,8 @@
         android:baselineAligned="false"
         tools:context=".MainActivity"
         tools:layout_editor_absoluteX="244dp"
-        tools:layout_editor_absoluteY="277dp">
+        tools:layout_editor_absoluteY="277dp"
+        tools:ignore="MissingConstraints">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"

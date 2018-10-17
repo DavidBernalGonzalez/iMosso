@@ -1,0 +1,22 @@
+{
+  "test1": [
+    {
+      "id_pregunta" : 1,
+      "pregunta": "¿Donde desembarco el general romano C. Gneu Corneli Espició?",
+      "respuesta1": "Empuries",
+      "respuesta2": "Valencia",
+      "respuesta3": "Francia",
+      "respuesta4": "Italia",
+      "respuestaCorrecta": "Empuries"
+    },
+    {
+      "id_pregunta" : 2,
+      "pregunta": "¿Donde desembarco el general romano C. Gneu Corneli Espició?",
+      "respuesta1": "aaaaaaaaaaaaa",
+      "respuesta2": "Vaaaa",
+      "respuesta3": "Frbbbbbbbbbbancia",
+      "respuesta4": "Itabbbbbbbbblia",
+      "respuestaCorrecta": "Empuries"
+    }
+  ]
+}

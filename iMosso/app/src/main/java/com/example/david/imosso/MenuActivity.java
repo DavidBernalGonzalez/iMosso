@@ -28,5 +28,16 @@ public class MenuActivity extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+        Button BTN_Test=(Button)findViewById(R.id.BTN_Test);
+        BTN_Test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MenuActivity.this,
+                        TestMenu.class);
+                startActivity(myIntent);
+            }
+        });
     }
 }
+
+

@@ -47,9 +47,9 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/rounded_button"
             android:text="Resumenes"
-            app:layout_constraintBottom_toTopOf="@+id/button3"
-            app:layout_constraintEnd_toEndOf="@+id/button3"
-            app:layout_constraintStart_toStartOf="@+id/button3"
+            app:layout_constraintBottom_toTopOf="@+id/BTN_Test"
+            app:layout_constraintEnd_toEndOf="@+id/BTN_Test"
+            app:layout_constraintStart_toStartOf="@+id/BTN_Test"
             app:layout_constraintTop_toBottomOf="@+id/BTN_Guia" />
 
         <Button
@@ -79,7 +79,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/BTN_Test"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"
@@ -102,7 +102,7 @@
             app:layout_constraintBottom_toTopOf="@+id/button5"
             app:layout_constraintEnd_toEndOf="@+id/button5"
             app:layout_constraintStart_toStartOf="@+id/button5"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+            app:layout_constraintTop_toBottomOf="@+id/BTN_Test" />
     </android.support.constraint.ConstraintLayout>
 
 </android.support.constraint.ConstraintLayout>

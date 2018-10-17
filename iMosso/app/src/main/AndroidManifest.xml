@@ -21,7 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".MenuActivity" />
-        <activity android:name=".Pdf_Guide"></activity>
+        <activity android:name=".Pdf_Guide" />
+        <activity android:name=".Test" />
+        <activity android:name=".TestMenu"></activity>
     </application>
 
 </manifest>
