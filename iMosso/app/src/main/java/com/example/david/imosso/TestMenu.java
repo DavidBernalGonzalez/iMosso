@@ -1,7 +1,10 @@
 package com.example.david.imosso;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +14,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -19,17 +28,21 @@ import java.util.List;
 import static android.widget.Toast.*;
 
 public class TestMenu extends AppCompatActivity {
-    String titulo1="";
+    String titulo1="", titulo2="", titulo3="", titulo4="", titulo5="", titulo6="", titulo7="";
     ExpandableListView listView;
     ExpandableListAdapter listAdapter;
     List<String> listDataHeader;
     HashMap<String,List<String>> listHash;
+
+    public static final String MyPREFERENCES = "MyPrefs" ;
+    public static final String testEscogido = "nameKey";
+
+    SharedPreferences sharedpreferences;
     @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_menu);
-
         listView = (ExpandableListView)findViewById(R.id.lvExp);
         initData();
         listAdapter = new ExpandableListAdapter(this,listDataHeader, listHash);
@@ -52,12 +65,18 @@ public class TestMenu extends AppCompatActivity {
         List<String> categoriaA = new ArrayList<>();
         titulo1 = "1)Historia de Cataluña (parte I)";
         categoriaA.add(titulo1);
-        categoriaA.add("2)Historia de Cataluña (parte II)");
-        categoriaA.add("3)Historia de la policía en Cataluña");
-        categoriaA.add("4)Ámbito sociolingüístico");
-        categoriaA.add("5)Marco geográfico de Cataluña");
-        categoriaA.add("6)Entorno social en Cataluña");
-        categoriaA.add("7)Tecnologías de la información en el s. XXI");
+        titulo2 = "2)Historia de Cataluña (parte II)";
+        categoriaA.add(titulo2);
+        titulo3 = "3)Historia de la policía en Cataluña";
+        categoriaA.add(titulo3);
+        titulo4 = "4)Ámbito sociolingüístico";
+        categoriaA.add(titulo4);
+        titulo5 = "5)Marco geográfico de Cataluña";
+        categoriaA.add(titulo5);
+        titulo6 = "6)Entorno social en Cataluña";
+        categoriaA.add(titulo6);
+        titulo7 = "7)Tecnologías de la información en el s. XXI";
+        categoriaA.add(titulo7);
 
         List<String> categoriaB = new ArrayList<>();
         categoriaB.add("Expandable ListView");
@@ -101,16 +120,44 @@ public class TestMenu extends AppCompatActivity {
                 //Toast.makeText(TestMenu.this, listHash.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
                 //if the position its = titulo 1 go to...
                 if(listHash.get(listDataHeader.get(groupPosition)).get(childPosition)==titulo1){
-                    Intent myIntent = new Intent(TestMenu.this,
-                            Test.class);
-                    startActivity(myIntent);
-                } else if(listHash.get(listDataHeader.get(groupPosition)).get(childPosition)!=titulo1){
-                    Intent myIntent = new Intent(TestMenu.this,
-                            Test.class);
-                    startActivity(myIntent);
+                    existeArchivo("test.json");
+                } else if(listHash.get(listDataHeader.get(groupPosition)).get(childPosition)==titulo2){
+                    existeArchivo("test1.json");
+                } else if(listHash.get(listDataHeader.get(groupPosition)).get(childPosition)==titulo3){
+                    existeArchivo("test2.json");
                 }
                 return false;
             }
         });
+    }
+
+    private void existeArchivo(String name){
+        AssetManager mg = getResources().getAssets();
+        InputStream is = null;
+        try {
+            try (InputStream inputStream = is = mg.open(name)) {
+                //File exists so do something with it
+                SharedPreferences prefs =
+                        getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("test", name);
+                editor.commit();
+                //finish();
+                Intent myIntent = new Intent(TestMenu.this,
+                        Test.class);
+                startActivity(myIntent);
+            }
+        } catch (IOException ex) {
+            //file does not exist
+            Toast.makeText(TestMenu.this, "Test no disponible.", Toast.LENGTH_SHORT).show();
+        } finally {
+            if (is != null) {
+                try {
+                    is.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }

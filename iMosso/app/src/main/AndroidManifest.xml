@@ -23,7 +23,8 @@
         <activity android:name=".MenuActivity" />
         <activity android:name=".Pdf_Guide" />
         <activity android:name=".Test" />
-        <activity android:name=".TestMenu"></activity>
+        <activity android:name=".TestMenu" />
+        <activity android:name=".Resumenes"></activity>
     </application>
 
 </manifest>

@@ -1,11 +1,14 @@
 package com.example.david.imosso;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -14,6 +17,8 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+
+import static com.example.david.imosso.TestMenu.MyPREFERENCES;
 
 public class Test extends AppCompatActivity {
     int increment = 0;
@@ -31,10 +36,14 @@ public class Test extends AppCompatActivity {
         });
         showJSONFromAsset(0);
     }
+
     public String loadJSONFromAsset() {
         String json = null;
         try {
-            InputStream is = getAssets().open("test.json");
+            SharedPreferences prefs =
+                    getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+            String ruta = prefs.getString("test", null);
+            InputStream is = getAssets().open(ruta);
             int size = is.available();
             byte[] buffer = new byte[size];
             is.read(buffer);
@@ -59,7 +68,6 @@ public class Test extends AppCompatActivity {
                 String respuesta3 = jsonObject.getString("respuesta3");
                 String respuesta4 = jsonObject.getString("respuesta4");
                 String respuestaCorrecta = jsonObject.getString("respuestaCorrecta");
-
                 TextView TV_pregunta = (TextView) findViewById(R.id.TV_pregunta);
                 TV_pregunta.setText(pregunta);
                 TextView TV_num = (TextView) findViewById(R.id.TV_num);
