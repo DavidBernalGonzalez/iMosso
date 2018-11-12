@@ -2,21 +2,39 @@
   "test1": [
     {
       "id_pregunta" : 1,
-      "pregunta": "¿Donde desembarco el general romano C. Gneu Corneli Espició?",
-      "respuesta1": "Empuries",
-      "respuesta2": "Valencia",
-      "respuesta3": "Francia",
-      "respuesta4": "Italia",
-      "respuestaCorrecta": "Empuries"
+      "pregunta": "El imperio romano por el echo de estar setuado en la vertiende mediterranea, fue objeto de una romanización...",
+      "respuesta1": "Intensa",
+      "respuesta2": "Ligera",
+      "respuesta3": "Copiosa",
+      "respuesta4": "Meridiana",
+      "respuestaCorrecta": "Intensa"
     },
     {
       "id_pregunta" : 2,
-      "pregunta": "¿Donde desembarco el general romano C. Gneu Corneli Espició?",
-      "respuesta1": "aaaaaaaaaaaaa",
-      "respuesta2": "Vaaaa",
-      "respuesta3": "Frbbbbbbbbbbancia",
-      "respuesta4": "Itabbbbbbbbblia",
-      "respuestaCorrecta": "Empuries"
+      "pregunta": "¿En que estaba basado e lsistema economico y social romano?",
+      "respuesta1": "En el artesanado",
+      "respuesta2": "En el esclavismo",
+      "respuesta3": "En el comercio",
+      "respuesta4": "En la tierra",
+      "respuestaCorrecta": "En el esclavismo"
+    },
+    {
+      "id_pregunta" : 3,
+      "pregunta": "¿Cuando comienza la historia de Cataluña como tal?",
+      "respuesta1": "Prehistoria",
+      "respuesta2": "Edad contemporanea",
+      "respuesta3": "Edad media",
+      "respuesta4": "Renacimiento",
+      "respuestaCorrecta": "Edad media"
+    },
+    {
+      "id_pregunta" : 4,
+      "pregunta": "¿Como se dividio el territorio de Cataluña la Vella en la epoca de Carlomagno?",
+      "respuesta1": "Veguerias",
+      "respuesta2": "Sestercios",
+      "respuesta3": "Provincias",
+      "respuesta4": "Condados",
+      "respuestaCorrecta": "Condados"
     }
   ]
 }

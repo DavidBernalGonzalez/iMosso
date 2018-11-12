@@ -24,7 +24,12 @@
         <activity android:name=".Pdf_Guide" />
         <activity android:name=".Test" />
         <activity android:name=".TestMenu" />
-        <activity android:name=".Resumenes"></activity>
+        <activity android:name=".Resumenes" />
+        <activity android:name=".notaTest" />
+        <activity android:name=".pdf_resumenes" />
+        <activity android:name=".PdfResumenesActivity" />
+        <activity android:name=".MenuResumenesPdfActivity" />
+        <activity android:name=".pdf_resumen"></activity>
     </application>
 
 </manifest>

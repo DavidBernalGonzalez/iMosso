@@ -1,6 +1,5 @@
 package com.example.david.imosso;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -8,26 +7,18 @@ import android.content.res.AssetManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ExpandableListView;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import static android.widget.Toast.*;
-
-public class TestMenu extends AppCompatActivity {
+public class MenuResumenesPdfActivity extends AppCompatActivity {
     String tituloA1="", tituloA2="", tituloA3="", tituloA4="", tituloA5="", tituloA6="", tituloA7="";
     String tituloB1="", tituloB2="", tituloB3="", tituloB4="", tituloB5="", tituloB6="", tituloB7="", tituloB8="";
     String tituloC1="", tituloC2="", tituloC3="", tituloC4="", tituloC5="";
@@ -35,16 +26,13 @@ public class TestMenu extends AppCompatActivity {
     ExpandableListAdapter listAdapter;
     List<String> listDataHeader;
     HashMap<String,List<String>> listHash;
-
-    public static final String MyPREFERENCES = "MyPrefs" ;
-    public static final String testEscogido = "nameKey";
-
-    SharedPreferences sharedpreferences;
-    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_menu);
+        setContentView(R.layout.activity_menu_resumenes_pdf);
+        //SIDEBAR TRANSPARENT
+        Window g = getWindow();
+        g.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, WindowManager.LayoutParams.TYPE_STATUS_BAR);
         listView = (ExpandableListView)findViewById(R.id.lvExp);
         initData();
         listAdapter = new ExpandableListAdapter(this,listDataHeader, listHash);
@@ -130,15 +118,12 @@ public class TestMenu extends AppCompatActivity {
         listView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
             @Override
             public boolean onChildClick(ExpandableListView expandableListView, View view, int groupPosition, int childPosition, long l) {
-                //Toast.makeText(TestMenu.this, listHash.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(TestMenu.this, listHash.get(listDataHeader.get(groupPosition)).get(childPosition), Toast.LENGTH_SHORT).show();
-                //if the position its = titulo 1 go to...
                 if(listHash.get(listDataHeader.get(groupPosition)).get(childPosition)==tituloA1){
-                    existeArchivo("test.json");
+                    existeArchivo("demo.pdf");
                 } else if(listHash.get(listDataHeader.get(groupPosition)).get(childPosition)==tituloA2){
-                    existeArchivo("test1.json");
+                    existeArchivo("demo1.pdf");
                 } else if(listHash.get(listDataHeader.get(groupPosition)).get(childPosition)==tituloA3){
-                    existeArchivo("test2.json");
+                    existeArchivo("demo2.pdf");
                 }
                 return false;
             }
@@ -152,19 +137,18 @@ public class TestMenu extends AppCompatActivity {
             try (InputStream inputStream = is = mg.open(name)) {
                 //File exists so do something with it
                 SharedPreferences prefs =
-                        getSharedPreferences("MisPreferencias",Context.MODE_PRIVATE);
+                        getSharedPreferences("Resumenes",Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = prefs.edit();
-                editor.putString("test", name);
+                editor.putString("resumen", name);
                 editor.commit();
-                //finish();
-                Intent myIntent = new Intent(TestMenu.this,
-                        Test.class);
+                Intent myIntent = new Intent(MenuResumenesPdfActivity.this,
+                        pdf_resumen.class);
                 startActivity(myIntent);
                 finish(); //no deja echar atras cuando entremos en notaTest para que la nota no se pueda modificar
             }
         } catch (IOException ex) {
             //file does not exist
-            Toast.makeText(TestMenu.this, "Test no disponible.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MenuResumenesPdfActivity.this, "Resumen no disponible.", Toast.LENGTH_SHORT).show();
         } finally {
             if (is != null) {
                 try {

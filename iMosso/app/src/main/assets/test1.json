@@ -3,20 +3,38 @@
     {
       "id_pregunta" : 1,
       "pregunta": "¿Donde desembarco el general romano C. Gneu Corneli Espició?",
-      "respuesta1": "david",
-      "respuesta2": "bernal",
-      "respuesta3": "gonzalez",
-      "respuesta4": "Italia",
-      "respuestaCorrecta": "Empuries"
+      "respuesta1": "A",
+      "respuesta2": "E",
+      "respuesta3": "I",
+      "respuesta4": "O",
+      "respuestaCorrecta": "A"
     },
     {
       "id_pregunta" : 2,
       "pregunta": "¿Donde desembarco el general romano C. Gneu Corneli Espició?",
-      "respuesta1": "aaaaaaaaaaaaa",
-      "respuesta2": "Vaaaa",
-      "respuesta3": "Frbbbbbbbbbbancia",
-      "respuesta4": "Itabbbbbbbbblia",
-      "respuestaCorrecta": "Empuries"
+      "respuesta1": "E",
+      "respuesta2": "Y",
+      "respuesta3": "O",
+      "respuesta4": "P",
+      "respuestaCorrecta": "P"
+    },
+    {
+      "id_pregunta" : 3,
+      "pregunta": "¿Donde desembarco el general romano C. Gneu Corneli Espició?",
+      "respuesta1": "A",
+      "respuesta2": "B",
+      "respuesta3": "C",
+      "respuesta4": "D",
+      "respuestaCorrecta": "C"
+    },
+    {
+      "id_pregunta" : 4,
+      "pregunta": "¿Donde desembarco el general romano C. Gneu Corneli Espició?",
+      "respuesta1": "E",
+      "respuesta2": "Y",
+      "respuesta3": "O",
+      "respuesta4": "P",
+      "respuestaCorrecta": "P"
     }
   ]
 }
