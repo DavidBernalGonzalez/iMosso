@@ -63,7 +63,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button4" />
+            app:layout_constraintTop_toBottomOf="@+id/BTN_Resultados" />
 
         <Button
             android:id="@+id/BTN_Guia"
@@ -86,13 +86,13 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/rounded_button"
             android:text="Test"
-            app:layout_constraintBottom_toTopOf="@+id/button4"
-            app:layout_constraintEnd_toEndOf="@+id/button4"
-            app:layout_constraintStart_toStartOf="@+id/button4"
+            app:layout_constraintBottom_toTopOf="@+id/BTN_Resultados"
+            app:layout_constraintEnd_toEndOf="@+id/BTN_Resultados"
+            app:layout_constraintStart_toStartOf="@+id/BTN_Resultados"
             app:layout_constraintTop_toBottomOf="@+id/BTN_Resumenes" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/BTN_Resultados"
             android:layout_width="200dp"
             android:layout_height="50dp"
             android:layout_marginStart="8dp"

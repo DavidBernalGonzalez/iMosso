@@ -29,7 +29,8 @@
         <activity android:name=".pdf_resumenes" />
         <activity android:name=".PdfResumenesActivity" />
         <activity android:name=".MenuResumenesPdfActivity" />
-        <activity android:name=".pdf_resumen"></activity>
+        <activity android:name=".pdf_resumen" />
+        <activity android:name=".Resultados"></activity>
     </application>
 
 </manifest>

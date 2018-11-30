@@ -48,6 +48,17 @@ public class MenuActivity extends AppCompatActivity {
                 //        pdfView.fromAsset("demo.pdf").load();
             }
         });
+        Button BTN_Resultados=(Button)findViewById(R.id.BTN_Resultados);
+        BTN_Resultados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MenuActivity.this,
+                        Resultados.class);
+                startActivity(myIntent);
+                // pdfView = (PDFView) findViewById(R.id.pdfView);
+                //        pdfView.fromAsset("demo.pdf").load();
+            }
+        });
     }
 }
 

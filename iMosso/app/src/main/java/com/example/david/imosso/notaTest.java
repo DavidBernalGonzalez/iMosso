@@ -1,17 +1,20 @@
 package com.example.david.imosso;
-import android.content.SharedPreferences;
+
 import android.content.Context;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DecimalFormat;
-import java.util.Locale;
+import com.example.david.imosso.entidades.ConexionSQLiteHelper;
 
-import static java.lang.Math.round;
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class notaTest extends AppCompatActivity {
     String notaTest;
@@ -29,6 +32,7 @@ public class notaTest extends AppCompatActivity {
         try {
             SharedPreferences prefsnota =
                     getSharedPreferences("Nota", Context.MODE_PRIVATE);
+            String descripcionTest = prefsnota.getString("descripcionTest", null);
             int aciertos = prefsnota.getInt("aciertos", 0);
             int fallos = prefsnota.getInt("fallos", 0);
             int longitudTest = prefsnota.getInt("longitudTest", 0);
@@ -57,10 +61,26 @@ public class notaTest extends AppCompatActivity {
             TV_notaEscrita.setText(valoracion);
             String resultMensajes = "Realizando " + aciertos + " aciertos, " + fallos + " fallos\ny " + (longitudTest-(aciertos+fallos)) + " no contestadas, sobre " + longitudTest + " preguntas";
             TV_resultadosPreguntas.setText(resultMensajes);
+            String fecha = new SimpleDateFormat("dd-MM-yy kk:mm").format(new Date());
+            //Realizo la conexion a la BBDD
+            ConexionSQLiteHelper conn = new ConexionSQLiteHelper(this, "db_resultados", null, 1);
+            introducirNota(fecha, descripcionTest, notaTxt);
         } catch (Exception e){
             TV_notaTest.setText("Error");
         }
     }
-
-
+    private void introducirNota(String fecha, String descripcionTest, String notaTxt) {
+        try {
+            //Realizo la conexion a la BBDD
+            ConexionSQLiteHelper conn = new ConexionSQLiteHelper(notaTest.this, "resultadosDB", null, 1);
+            //Abro la BBDD para poder escribir en ella
+            SQLiteDatabase db = conn.getWritableDatabase();
+            String insert = "INSERT INTO resultadosDB (fechaTest, nombreTest, notaTest) values ( '" + fecha + "' , '" + descripcionTest + "' , '" + notaTxt + "' )";
+            db.execSQL(insert);
+            db.close();
+            //Toast.makeText(notaTest.this,"Resultado almacenado correctamente.", Toast.LENGTH_LONG ).show();
+        } catch (Exception e) {
+            Toast.makeText(notaTest.this, "No se ha podido almacenar el resultado.", Toast.LENGTH_LONG).show();
+        }
+    }
 }
