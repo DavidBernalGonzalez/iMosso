@@ -1,16 +1,14 @@
 package com.example.david.imosso;
 
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v7.app.AppCompatActivity;
 
 import com.github.barteksc.pdfviewer.PDFView;
 
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.String;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -23,7 +21,7 @@ public class Pdf_Guide extends AppCompatActivity {
         setContentView(R.layout.pdf_guide);
         //OPEN pdf from url
         pdfView = (PDFView) findViewById(R.id.pdfView);
-        String url = "https://mossos.gencat.cat/web/.content/home/01_els_mossos_desquadra/ingresCos/Escala-bAsica/docs/Guia-definitiva-sencera.pdf";
+        String url = "https://mossos.gencat.cat/web/.content/home/01_els_mossos_desquadra/ingresCos/Escala-bAsica/46_17_mossoa_2017/02_guia/Guia-definitiva-sencera.pdf";
         new DownloadPdf().execute(url);
         //OPEN PDF local
         // This is method from read PDF from Assets (local)
